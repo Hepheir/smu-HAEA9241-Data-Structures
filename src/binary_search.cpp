@@ -31,6 +31,28 @@ indext binary_search(indext s, indext e, elt x)
     }
 }
 
+
+indext binary_search_alt(elt x) {
+    indext s = 0;
+    indext e = count-1;
+    indext mid;
+    while (true) {
+        if (s == e) {
+            return (array[s] == x) ? s : -1;
+        }
+        mid = (s+e) / 2;
+        if (array[mid] == x) {
+            return mid;
+        }
+        if (array[mid] > x) {
+            e = mid-1;
+        } else {
+            s = mid+1;
+        }
+    }
+}
+
+
 int main()
 {
     std::cout << "                    array: ";
@@ -44,6 +66,13 @@ int main()
     for (int i = 0; i < count; i++)
     {
         std::cout << binary_search(0, count - 1, array[i]) << ' ';
+    }
+    std::cout << std::endl;
+
+    std::cout << "     (loop) binary search: ";
+    for (int i = 0; i < count; i++)
+    {
+        std::cout << binary_search_alt(array[i]) << ' ';
     }
     std::cout << std::endl;
     return 0;
