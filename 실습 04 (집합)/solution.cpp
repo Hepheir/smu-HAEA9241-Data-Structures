@@ -26,7 +26,13 @@ int main() {
 
 void Q1() {
     printf("Q1. 김문희가 사는 곳은 어디인가?\n\n");
-    printf("\n");
+    const char *name = "김문희";
+    Student *student = tree->findByName(name);
+    if (student == nullptr) {
+        printf("[warning] %s 학생을 찾을 수 없습니다.\n\n", name);
+        return;
+    }
+    printf("[info] %s 학생이 사는 곳은 \"%s\"입니다.\n\n", name, student->address);
 }
 
 void Q2() {
