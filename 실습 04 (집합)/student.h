@@ -25,7 +25,7 @@ public:
     StudentNode *right = nullptr;
 
     void insert(StudentNode *node);
-    Student *search(const char *name);
+    Student *findByName(const char *name);
 };
 
 class StudentTree {
@@ -34,5 +34,5 @@ public:
 
     void readFile(const char *filename);
     void insert(Student *student);
-    Student *search(const char *name);
+    Student *findByName(const char *name);
 };
