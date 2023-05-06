@@ -4,6 +4,18 @@ void Student::fread(FILE *fp) {
     fscanf(fp, "%s %c %s %s %f %d %d", name, &gender, address, department, &gpa, &height, &weight);
 }
 
+StudentNode::StudentNode(Student *student) {
+    this->student = student;
+    left = nullptr;
+    right = nullptr;
+}
+
+StudentNode::~StudentNode() {
+    delete student;
+    if (left != nullptr) delete left;
+    if (right != nullptr) delete right;
+}
+
 void StudentNode::insert(StudentNode *node) {
     if (strcmp(node->student->name, student->name) < 0) {
         if (left == nullptr) left = node;
@@ -35,6 +47,14 @@ int StudentNode::countStudentsBetterThan(const Student *student) {
     return count;
 }
 
+StudentTree::StudentTree() {
+    root = nullptr;
+}
+
+StudentTree::~StudentTree() {
+    if (root != nullptr) delete root;
+}
+
 void StudentTree::readFile(const char *filename) {
     // 파일을 읽음과 동시에 트리를 채워감.
     // 이진 트리에서의 삽입은 항상 정렬된 상태를 유지함.
@@ -49,8 +69,7 @@ void StudentTree::readFile(const char *filename) {
 
 void StudentTree::insert(Student *student) {
     // 정렬된 상태를 유지하며 삽입.
-    StudentNode *node = new StudentNode();
-    node->student = student;
+    StudentNode *node = new StudentNode(student);
 
     if (root == nullptr) root = node;
     else root->insert(node);

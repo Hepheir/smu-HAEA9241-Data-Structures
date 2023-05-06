@@ -21,8 +21,11 @@ public:
 class StudentNode {
 public:
     Student *student;
-    StudentNode *left = nullptr;
-    StudentNode *right = nullptr;
+    StudentNode *left;
+    StudentNode *right;
+
+    StudentNode(Student *student);
+    ~StudentNode();
 
     void insert(StudentNode *node);
     Student *findByName(const char *name);
@@ -31,7 +34,10 @@ public:
 
 class StudentTree {
 public:
-    StudentNode *root = nullptr;
+    StudentNode *root;
+
+    StudentTree();
+    ~StudentTree();
 
     void readFile(const char *filename);
     void insert(Student *student);
