@@ -30,6 +30,7 @@ public:
     void insert(StudentNode *node);
     Student *findByName(const char *name);
     int countStudentsBetterThan(const Student *student);
+    bool hasNameRedundancy();
     void print();
 };
 
@@ -44,5 +45,6 @@ public:
     void insert(Student *student);
     Student *findByName(const char *name);
     int countStudentsBetterThan(const Student *student);
+    bool hasNameRedundancy();
     void print();
 };

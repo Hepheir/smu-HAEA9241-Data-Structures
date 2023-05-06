@@ -47,6 +47,18 @@ int StudentNode::countStudentsBetterThan(const Student *student) {
     return count;
 }
 
+bool StudentNode::hasNameRedundancy() {
+    if (left != nullptr) {
+        if (left->findByName(student->name) != nullptr) return true;
+        if (left->hasNameRedundancy()) return true;
+    }
+    if (right != nullptr) {
+        if (right->findByName(student->name) != nullptr) return true;
+        if (right->hasNameRedundancy()) return true;
+    }
+    return false;
+}
+
 void StudentNode::print() {
     if (left != nullptr) left->print();
     printf("%s ", student->name);
@@ -92,6 +104,13 @@ Student *StudentTree::findByName(const char *name) {
 int StudentTree::countStudentsBetterThan(const Student *student) {
     if (root == nullptr) return 0;
     return root->countStudentsBetterThan(student);
+}
+
+bool StudentTree::hasNameRedundancy() {
+    if (root != nullptr) {
+        return root->hasNameRedundancy();
+    }
+    return false;
 }
 
 void StudentTree::print() {

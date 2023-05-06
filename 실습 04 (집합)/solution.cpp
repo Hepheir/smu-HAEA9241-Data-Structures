@@ -59,5 +59,10 @@ void Q4() {
 
 void Q5() {
     printf("Q5. 학생들의 이름을 ID로 사용하는 것이 가능한가?\n\n");
+    if (tree->hasNameRedundancy()) {
+        printf("[info] 불가능합니다. 중복된 이름이 있습니다.\n\n");
+    } else {
+        printf("[info] 가능합니다. 중복된 이름이 없습니다.\n\n");
+    }
     printf("\n");
 }
