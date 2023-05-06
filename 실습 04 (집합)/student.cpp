@@ -47,6 +47,12 @@ int StudentNode::countStudentsBetterThan(const Student *student) {
     return count;
 }
 
+void StudentNode::print() {
+    if (left != nullptr) left->print();
+    printf("%s ", student->name);
+    if (right != nullptr) right->print();
+}
+
 StudentTree::StudentTree() {
     root = nullptr;
 }
@@ -86,4 +92,11 @@ Student *StudentTree::findByName(const char *name) {
 int StudentTree::countStudentsBetterThan(const Student *student) {
     if (root == nullptr) return 0;
     return root->countStudentsBetterThan(student);
+}
+
+void StudentTree::print() {
+    if (root != nullptr) {
+        root->print();
+        printf("\n");
+    }
 }

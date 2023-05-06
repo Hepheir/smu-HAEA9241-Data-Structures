@@ -13,6 +13,7 @@ StudentTree *tree;
 int main() {
     tree = new StudentTree();
     tree->readFile("list.txt");
+    // tree->print();
 
     Q1();
     Q2();
