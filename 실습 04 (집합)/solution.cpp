@@ -38,7 +38,7 @@ void Q1() {
 void Q2() {
     printf("Q2. 천하은보다 성적이 더 좋은 사람은 몇 명인가?\n\n");
     const char *name = "천하은";
-     Student *student = tree->findByName(name);
+    Student *student = tree->findByName(name);
     if (student == nullptr) {
         printf("[warning] %s 학생을 찾을 수 없습니다.\n\n", name);
         return;
