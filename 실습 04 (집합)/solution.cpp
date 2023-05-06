@@ -1,6 +1,6 @@
 #include <cstdio>
 
-#include "student.h"
+#include "student.cpp"
 
 void Q1();
 void Q2();
