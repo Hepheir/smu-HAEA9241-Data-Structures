@@ -9,7 +9,7 @@ void StudentNode::insert(StudentNode *node) {
         if (left == nullptr) left = node;
         else left->insert(node);
     }
-    else if (strcmp(node->student->name, student->name) > 0) {
+    else {
         if (right == nullptr) right = node;
         else right->insert(node);
     }
