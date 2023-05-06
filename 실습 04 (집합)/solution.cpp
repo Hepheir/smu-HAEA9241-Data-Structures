@@ -1,45 +1,50 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <cstdio>
-#include <cstring>
 
-#define MAX_STR_LEN 36
+#include "student.h"
 
-class Student {
-public:
-    char name[MAX_STR_LEN];
-    char gender;
-    char address[MAX_STR_LEN];
-    char department[MAX_STR_LEN];
-    float gpa;
-    int height;
-    int weight;
+void Q1();
+void Q2();
+void Q3();
+void Q4();
+void Q5();
 
-    void fread(FILE *fp);
-};
-
-class Node {
-public:
-    Student *student;
-    Node *left = nullptr;
-    Node *right = nullptr;
-
-    Node(Student *student);
-};
-
-class BinaryTree {
-public:
-    Node *root = nullptr;
-    void add(Student *student);
-    Student *find(const char *name);
-};
+StudentTree *tree;
 
 int main() {
-    BinaryTree tree;
+    tree = new StudentTree();
+    tree->readFile("list.txt");
 
+    Q1();
+    Q2();
+    Q3();
+    Q4();
+    Q5();
+
+    delete tree;
     return 0;
 }
 
-Node::Node(Student *student) {
-    this->student = student;
+void Q1() {
+    printf("Q1. 김문희가 사는 곳은 어디인가?\n\n");
+    printf("\n");
+}
+
+void Q2() {
+    printf("Q2. 천하은보다 성적이 더 좋은 사람은 몇 명인가?\n\n");
+    printf("\n");
+}
+
+void Q3() {
+    printf("Q3. 가장 학생이 많은 학과는 무슨 과인가?\n\n");
+    printf("\n");
+}
+
+void Q4() {
+    printf("Q4. 학생들이 거주하는 지역을 가장 많은 학생들이 거주하는 지역 순으로 출력하라\n\n");
+    printf("\n");
+}
+
+void Q5() {
+    printf("Q5. 학생들의 이름을 ID로 사용하는 것이 가능한가?\n\n");
+    printf("\n");
 }
