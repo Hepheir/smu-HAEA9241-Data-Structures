@@ -27,6 +27,14 @@ Student *StudentNode::findByName(const char *name) {
     return student;
 }
 
+int StudentNode::countStudentsBetterThan(const Student *student) {
+    int count = 0;
+    if (left != nullptr) count += left->countStudentsBetterThan(student);
+    if (right != nullptr) count += right->countStudentsBetterThan(student);
+    if (this->student->gpa > student->gpa) count += 1;
+    return count;
+}
+
 void StudentTree::readFile(const char *filename) {
     // 파일을 읽음과 동시에 트리를 채워감.
     // 이진 트리에서의 삽입은 항상 정렬된 상태를 유지함.
@@ -54,4 +62,9 @@ Student *StudentTree::findByName(const char *name) {
         return nullptr;
     }
     return root->findByName(name);
+}
+
+int StudentTree::countStudentsBetterThan(const Student *student) {
+    if (root == nullptr) return 0;
+    return root->countStudentsBetterThan(student);
 }

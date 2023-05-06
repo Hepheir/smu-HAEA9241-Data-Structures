@@ -26,6 +26,7 @@ public:
 
     void insert(StudentNode *node);
     Student *findByName(const char *name);
+    int countStudentsBetterThan(const Student *student);
 };
 
 class StudentTree {
@@ -35,4 +36,5 @@ public:
     void readFile(const char *filename);
     void insert(Student *student);
     Student *findByName(const char *name);
+    int countStudentsBetterThan(const Student *student);
 };
