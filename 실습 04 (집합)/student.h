@@ -19,11 +19,12 @@ public:
 };
 
 class StudentNode {
-public:
+private:
     Student *student;
     StudentNode *left;
     StudentNode *right;
 
+public:
     StudentNode(Student *student);
     ~StudentNode();
 
@@ -35,9 +36,10 @@ public:
 };
 
 class StudentTree {
-public:
+private:
     StudentNode *root;
 
+public:
     StudentTree();
     ~StudentTree();
 
