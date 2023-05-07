@@ -1,5 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <cstdio>
 #include <cstring>
 
@@ -29,10 +27,11 @@ public:
     ~StudentNode();
 
     void insert(StudentNode *node);
+    void print();
+
     Student *findByName(const char *name);
     int countStudentsBetterThan(const Student *student);
     bool hasNameRedundancy();
-    void print();
 };
 
 class StudentTree {
@@ -43,10 +42,12 @@ public:
     StudentTree();
     ~StudentTree();
 
-    void readFile(const char *filename);
     void insert(Student *student);
+    void print();
+
+    void readFile(const char *filename);
+
     Student *findByName(const char *name);
     int countStudentsBetterThan(const Student *student);
     bool hasNameRedundancy();
-    void print();
 };
