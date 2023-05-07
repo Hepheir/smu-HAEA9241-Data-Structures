@@ -28,7 +28,7 @@ int main() {
 }
 
 void Q1() {
-    printf("Q1. 김문희가 사는 곳은 어디인가?\n\n");
+    printf("\nQ1. 김문희가 사는 곳은 어디인가?\n\n");
     const char *name = "김문희";
     Student *student = tree->findByName(name);
     if (student == nullptr) {
@@ -39,7 +39,7 @@ void Q1() {
 }
 
 void Q2() {
-    printf("Q2. 천하은보다 성적이 더 좋은 사람은 몇 명인가?\n\n");
+    printf("\nQ2. 천하은보다 성적이 더 좋은 사람은 몇 명인가?\n\n");
     const char *name = "천하은";
     Student *student = tree->findByName(name);
     if (student == nullptr) {
@@ -50,7 +50,7 @@ void Q2() {
 }
 
 void Q3() {
-    printf("Q3. 가장 학생이 많은 학과는 무슨 과인가?\n\n");
+    printf("\nQ3. 가장 학생이 많은 학과는 무슨 과인가?\n\n");
     if (tree->isEmpty()) {
         printf("[warning] 등록된 학생이 없습니다.\n\n");
         return;
@@ -59,13 +59,13 @@ void Q3() {
 }
 
 void Q4() {
-    printf("Q4. 학생들이 거주하는 지역을 가장 많은 학생들이 거주하는 지역 순으로 출력하라\n\n");
+    printf("\nQ4. 학생들이 거주하는 지역을 가장 많은 학생들이 거주하는 지역 순으로 출력하라\n\n");
     tree->printAddressesByPopulationInAscendingOrder();
     printf("\n");
 }
 
 void Q5() {
-    printf("Q5. 학생들의 이름을 ID로 사용하는 것이 가능한가?\n\n");
+    printf("\nQ5. 학생들의 이름을 ID로 사용하는 것이 가능한가?\n\n");
     if (tree->hasNameRedundancy()) {
         printf("[info] 불가능합니다. 중복된 이름이 있습니다.\n\n");
     } else {
