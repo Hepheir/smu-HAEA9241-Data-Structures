@@ -1,5 +1,7 @@
 #include <cstdio>
 #include <cstring>
+#include <map>
+#include <string>
 
 #define MAX_STR_LEN 36
 
@@ -32,6 +34,8 @@ public:
     Student *findByName(const char *name);
     int countStudentsBetterThan(const Student *student);
     bool hasNameRedundancy();
+    void countByDepartment(std::map<std::string, int> *counter);
+    void countByAddress(std::map<std::string, int> *counter);
 };
 
 class StudentTree {
@@ -44,10 +48,40 @@ public:
 
     void insert(Student *student);
     void print();
+    bool isEmpty();
 
     void readFile(const char *filename);
 
     Student *findByName(const char *name);
     int countStudentsBetterThan(const Student *student);
     bool hasNameRedundancy();
+    std::string findMostPopulatedDepartment();
+    void printAddressesByPopulationInAscendingOrder();
+};
+
+class AddressNode {
+private:
+    const char *address;
+    int count;
+    AddressNode *left;
+    AddressNode *right;
+
+public:
+    AddressNode(const char *address, int count);
+    ~AddressNode();
+
+    void insert(AddressNode *node);
+    void print();
+};
+
+class AddressTree {
+private:
+    AddressNode *root;
+
+public:
+    AddressTree();
+    ~AddressTree();
+
+    void insert(const char *address, int count);
+    void print();
 };

@@ -51,11 +51,16 @@ void Q2() {
 
 void Q3() {
     printf("Q3. 가장 학생이 많은 학과는 무슨 과인가?\n\n");
-    printf("\n");
+    if (tree->isEmpty()) {
+        printf("[warning] 등록된 학생이 없습니다.\n\n");
+        return;
+    }
+    printf("[info] 가장 학생이 많은 학과는 \"%s\" 입니다.\n\n", tree->findMostPopulatedDepartment().c_str());
 }
 
 void Q4() {
     printf("Q4. 학생들이 거주하는 지역을 가장 많은 학생들이 거주하는 지역 순으로 출력하라\n\n");
+    tree->printAddressesByPopulationInAscendingOrder();
     printf("\n");
 }
 
