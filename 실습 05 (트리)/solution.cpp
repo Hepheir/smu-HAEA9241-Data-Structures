@@ -1,4 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
+#define MAX_2(X, Y) (X > Y ? X : Y)
+#define MAX_3(X, Y, Z) (MAX_2(MAX_2(X, Y), Z))
 #include <cstdio>
 #include <cstdlib>
 
