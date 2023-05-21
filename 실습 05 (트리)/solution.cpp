@@ -57,6 +57,12 @@ void node::init() {
     rchild = nullptr;
 }
 
+int node::height() {
+    int lheight = (lchild != nullptr) ? lchild->height() : 0;
+    int rheight = (rchild != nullptr) ? rchild->height() : 0;
+    return 1 + MAX_2(lheight, rheight);
+}
+
 int node::valid(int cval, int lval, int rval) {
     if (val == cval && !is_leaf_node(cval)) {
         // Rule 2.에 위배되는 경우.
