@@ -28,3 +28,16 @@ void node::init() {
     lchild = nullptr;
     rchild = nullptr;
 }
+
+int node::is_leaf_node(int cval) {
+    if (val == cval) {
+        return lchild == nullptr && rchild == nullptr;
+    }
+    if (lchild != nullptr && lchild->is_leaf_node(cval)) {
+        return true;
+    }
+    if (rchild != nullptr && rchild->is_leaf_node(cval)) {
+        return true;
+    }
+    return false;
+}
