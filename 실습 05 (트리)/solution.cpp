@@ -58,6 +58,18 @@ void node::init() {
 }
 
 int node::insert(int cval, int lval, int rval) {
+    if (val == -1 && is_leaf_node(val)) {
+        val = cval;
+
+        lchild = (node *) malloc(sizeof(node));
+        lchild->init();
+        lchild->val = lval;
+
+        rchild = (node *) malloc(sizeof(node));
+        rchild->init();
+        rchild->val = rval;
+        return true;
+    }
     // if a node is created successfully, this function returns true.
     if (val == cval && is_leaf_node(cval)) {
         lchild = (node *) malloc(sizeof(node));
