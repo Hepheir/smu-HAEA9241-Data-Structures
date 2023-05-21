@@ -77,6 +77,19 @@ int node::height() {
     return 1 + MAX_2(lheight, rheight);
 }
 
+int node::search(int sval) {
+    if (val == sval) {
+        return true;
+    }
+    if (lchild != nullptr && lchild->search(sval)) {
+        return true;
+    }
+    if (rchild != nullptr && rchild->search(sval)) {
+        return true;
+    }
+    return false;
+}
+
 int node::valid(int cval, int lval, int rval) {
     if (val == cval && !is_leaf_node(cval)) {
         // Rule 2.에 위배되는 경우.
