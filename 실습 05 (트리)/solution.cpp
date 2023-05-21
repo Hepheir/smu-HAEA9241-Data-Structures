@@ -57,6 +57,14 @@ void node::init() {
     rchild = nullptr;
 }
 
+int node::width() {
+    int lheight = (lchild != nullptr) ? lchild->height() : 0;
+    int rheight = (rchild != nullptr) ? rchild->height() : 0;
+    int lwidth = (lchild != nullptr) ? lchild->width() : 0;
+    int rwidth = (rchild != nullptr) ? rchild->width() : 0;
+    return MAX_3(lheight+rheight, lwidth, rwidth);
+}
+
 int node::height() {
     int lheight = (lchild != nullptr) ? lchild->height() : 0;
     int rheight = (rchild != nullptr) ? rchild->height() : 0;
