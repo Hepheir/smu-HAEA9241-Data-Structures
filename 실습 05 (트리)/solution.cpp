@@ -57,6 +57,12 @@ void node::init() {
     rchild = nullptr;
 }
 
+void node::inorder_print() {
+    if (lchild != nullptr) lchild->inorder_print();
+    printf("%d ", val);
+    if (rchild != nullptr) rchild->inorder_print();
+}
+
 int node::width() {
     int lheight = (lchild != nullptr) ? lchild->height() : 0;
     int rheight = (rchild != nullptr) ? rchild->height() : 0;
