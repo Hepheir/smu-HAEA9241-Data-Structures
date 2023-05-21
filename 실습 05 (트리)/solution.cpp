@@ -57,6 +57,27 @@ void node::init() {
     rchild = nullptr;
 }
 
+int node::insert(int cval, int lval, int rval) {
+    // if a node is created successfully, this function returns true.
+    if (val == cval && is_leaf_node(cval)) {
+        lchild = (node *) malloc(sizeof(node));
+        lchild->init();
+        lchild->val = lval;
+
+        rchild = (node *) malloc(sizeof(node));
+        rchild->init();
+        rchild->val = rval;
+        return true;
+    }
+    if (lchild != nullptr && lchild->insert(cval, lval, rval)) {
+        return true;
+    }
+    if (rchild != nullptr && rchild->insert(cval, lval, rval)) {
+        return true;
+    }
+    return false;
+}
+
 void node::inorder_print() {
     if (lchild != nullptr) lchild->inorder_print();
     printf("%d ", val);
