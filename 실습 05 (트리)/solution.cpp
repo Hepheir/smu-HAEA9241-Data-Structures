@@ -22,3 +22,9 @@ int main(void) {
 
     return 0;
 }
+
+void node::init() {
+    val = -1;
+    lchild = nullptr;
+    rchild = nullptr;
+}
