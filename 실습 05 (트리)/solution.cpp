@@ -55,6 +55,25 @@ void node::init() {
     rchild = nullptr;
 }
 
+int node::valid(int cval, int lval, int rval) {
+    if (val == cval && !is_leaf_node(cval)) {
+        // Rule 2.에 위배되는 경우.
+        return false;
+    }
+    if (val == lval || val == rval) {
+        // Rule 3.에 위배되는 경우.
+        return false;
+    }
+    // 재귀적으로 검사
+    if (lchild != nullptr && !lchild->valid(cval, lval, rval)) {
+        return false;
+    }
+    if (rchild != nullptr && !rchild->valid(cval, lval, rval)) {
+        return false;
+    }
+    return true;
+}
+
 int node::is_leaf_node(int cval) {
     if (val == cval) {
         return lchild == nullptr && rchild == nullptr;
