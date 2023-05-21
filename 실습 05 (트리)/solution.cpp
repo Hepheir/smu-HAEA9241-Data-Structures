@@ -91,9 +91,15 @@ int node::insert(int cval, int lval, int rval) {
 }
 
 void node::inorder_print() {
-    if (lchild != nullptr) lchild->inorder_print();
-    printf("%d ", val);
-    if (rchild != nullptr) rchild->inorder_print();
+    if (lchild != nullptr) {
+        lchild->inorder_print();
+        printf(", ");
+    }
+    printf("%d", val);
+    if (rchild != nullptr) {
+        printf(", ");
+        rchild->inorder_print();
+    }
 }
 
 int node::width() {
